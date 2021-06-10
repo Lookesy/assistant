@@ -44,6 +44,8 @@ for phrase in speech:
     		result = False
     		break
 
+#Ниже просто набросок для будущего кода. Он ни на что не годен, оставил просто для заметки.
+
 if result_command == "привет включи музыку" or result_command == "включи музыку" or result_command == "привет включил музыку":
 	vk_session = vk_api.VkApi(login='89833903557',password='arbuzikiz002')
 	vk_session.auth()
