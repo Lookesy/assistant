@@ -46,19 +46,3 @@ for phrase in speech:
 
 #Ниже просто набросок для будущего кода. Он ни на что не годен, оставил просто для заметки.
 
-if result_command == "привет включи музыку" or result_command == "включи музыку" or result_command == "привет включил музыку":
-	vk_session = vk_api.VkApi(login='89833903557',password='arbuzikiz002')
-	vk_session.auth()
-	vk = vk_audio.VkAudio(vk=vk_session)
-	owner = None
-	data = vk.load(owner)
-	second_audio = data.Audios[1]
-	format_string = "{title} - {artist} ({owner_id}_{id}) -> {url}"
-	print("2.",format_string.format(
-		title=second_audio.title,
-		artist=second_audio.artist,
-		owner_id = second_audio.owner_id,
-		id=second_audio.id,
-		url=second_audio.url
-		))
-	print("1.",format_string.format(**data.Audios[0].toArray()))
