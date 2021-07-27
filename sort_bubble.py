@@ -6,8 +6,6 @@ def bubble(array_list):
             if array_list[j] > array_list[j + 1]:
                 array_list[j], array_list[j + 1] = array_list[j + 1], array_list[j]
 
-
-x = [1, 4, 2, 15, 21, 12, 64, -1, 2, 41, -21]
-
-bubble(x)
-print(x)
+x = [10, 20, 50, 20]
+y = bubble(x)
+print(y)
