@@ -25,6 +25,3 @@ def quick(nums):
 
     _quick_sort(nums, 0, len(nums) - 1)
 
-random_list_of_nums = [22, 5, 1, 18, 99]  
-quick(random_list_of_nums)
-print(random_list_of_nums) 
