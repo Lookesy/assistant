@@ -1,14 +1,16 @@
 import os
 import difflib
-import vk_api
-import vk_audio
+import pyglet
+import webbrowser 
+import re
 from pocketsphinx import LiveSpeech, get_model_path
 
 #Список возможных команд
 #List of possible commands
 
-command_list = ["привет", "включи", "музыку", "включи музыку", "привет включи музыку", "привет включил музыку"]
-result = False
+command_list = ["привет", "включи", "музыку", "включи музыку", "привет включи музыку", "привет включил музыку", "поиск", "писк"]
+end_comm = None
+find_str = ['поиск', "найти", "найди"]
 
 #Распознавание речи
 #Speech recognition
@@ -25,24 +27,24 @@ speech = LiveSpeech(
     dic=os.path.join(model_path, 'ru.dic')
 )
 
-print("Say something!")
+print("Скажите что-нибудь!")
 
 for phrase in speech:
     print(phrase)
-    if result == True:
-    	result = False
-    	break
-    elif phrase != None:
-    	for commanda in command_list:
-    		if commanda == str(phrase):
-    			result_command = str(phrase)
-    			result = True
-    			break
-    	if result != True:
-    		print('Повторите запрос, пожалуйста!')
-    	elif result == True:
-    		result = False
-    		break
+    text_phrase = phrase
+    if phrase != None:
+        for command in command_list:
+            if command == str(phrase):
+                end_comm = str(phrase)
+        if end_comm == "включи" or end_comm == "музыку" or end_comm == "включи музыку" or end_comm == "включил музыку" or end_comm == "привет включи музыку" or end_comm == "привет включил музыку":
+            sound = pyglet.media.load('nggyu.mp3', streaming=False)
+            sound.play()
+            pyglet.app.run()
 
-#Ниже просто набросок для будущего кода. Он ни на что не годен, оставил просто для заметки.
+
+
+
+        print("Повторите запрос!")
+
+
 
