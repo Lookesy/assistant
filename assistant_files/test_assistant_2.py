@@ -40,11 +40,6 @@ for phrase in speech:
             sound = pyglet.media.load('nggyu.mp3', streaming=False)
             sound.play()
             pyglet.app.run()
-        for findstr in find_str:
-            index = text_phrase.find(findstr)
-            if index != -1:
-                query = phrase.replace(findstr, '')
-                webbrowser.open_new_tab('https://yandex.ru/search/?text=' % query)
 
 
 
